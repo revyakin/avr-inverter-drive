@@ -1,15 +1,7 @@
-/*******************************************************************************
- * $Id: duty_cycle.c 5 2012-02-03 23:38:47Z reviakinea@gmail.com $
- ******************************************************************************/
-
-#include <inttypes.h>
+#include "duty_cycle.h"
 #include "table_sin120.h"
 
-#define   MAX_THETA		120 // pi/2
-#define   MAX_THETAx2   240
-#define   MAX_THETAx3   360
-#define   MAX_THETAx4   480
-#define	  MAX_PWM       2666
+#include <stdint.h>
 
 /****************************************************************************/
 /*                       duty cycle                                         */
@@ -57,3 +49,4 @@ uint16_t duty_cycle(uint16_t theta, uint16_t Vm)
 	
 	return ((unsigned int) (MAX_PWM / 2 + Vmxsin));
 }
+ 

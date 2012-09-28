@@ -87,11 +87,6 @@ SRC += init.c
 SRC += psc_initialisation.c
 SRC += controlVF.c
 SRC += duty_cycle.c
-SRC += pid.c
-SRC += uart/uart.c
-SRC += crc8.c
-SRC += slip.c
-SRC += comm.c
 
 
 # List C++ source files here. (C dependencies are automatically generated.)
@@ -437,7 +432,7 @@ end:
 
 # Display size of file.
 HEXSIZE = $(SIZE) --target=$(FORMAT) $(TARGET).hex
-ELFSIZE = $(SIZE) --mcu=$(MCU) --format=avr $(TARGET).elf
+ELFSIZE = $(SIZE) $(TARGET).elf
 
 sizebefore:
 	@if test -f $(TARGET).elf; then echo; echo $(MSG_SIZE_BEFORE); $(ELFSIZE); \

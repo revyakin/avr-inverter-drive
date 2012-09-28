@@ -1,8 +1,5 @@
-/*******************************************************************************
- * $Id: controlVF.c 6 2012-02-03 23:42:58Z reviakinea@gmail.com $
- ******************************************************************************/
-
-#include <inttypes.h>
+#include "controlVF.h"
+#include <stdint.h>
 
 #define Vf_SLOPE		(uint16_t)(220/50)		// (было 5) 	наклон V/f ..  Vном.двиг. / Fном.двиг.
 #define OMEGA_TS_MAX	(uint16_t)(1650*0.128)	// (было 192) 	номинальная частота вращения двигателя - OMEGA_TS_MAX = Nном.двиг * 0.128
@@ -43,3 +40,4 @@ uint16_t controlVF(uint16_t wTs)
 			
     return amp ;
 }
+

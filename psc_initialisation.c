@@ -1,11 +1,12 @@
 /*******************************************************************************
  * $Id: psc_initialisation.c 6 2012-02-03 23:42:58Z reviakinea@gmail.com $
  ******************************************************************************/
+#include "psc_initialisation.h"
 
-#include <inttypes.h>
+#include <stdint.h>
 
 #include <avr/io.h>
-#include "mcu/pll/pll_drv.h"
+#include "pll.h"
 
 #define LOW(x)		((uint8_t)(x))
 #define HIGH(x)		((uint8_t)((x) >> 8))
