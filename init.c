@@ -39,7 +39,7 @@ void init(void) {
     /*************************************************************************************/
 	TCCR0A = (1<<WGM01);   // mode CTC : Clear Timer on Compare
 	TCCR0B = (1<<CS02);    // f_quartz = 12 MHz / 256 = 48 kHz
-	OCR0A = 0x2f;          // one interruption every ms
+	OCR0A = 0x4;          // one interruption every ms
 	TIMSK0 = (1<<OCIE0A);  // allow interruption when timer=compare
 
 	/**************************************************************************************/

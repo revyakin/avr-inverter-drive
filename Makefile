@@ -85,8 +85,8 @@ OBJDIR = .
 SRC  = $(TARGET).c         
 SRC += init.c
 SRC += psc_initialisation.c
-SRC += controlVF.c
-SRC += duty_cycle.c
+#SRC += controlVF.c
+#SRC += duty_cycle.c
 
 
 # List C++ source files here. (C dependencies are automatically generated.)
