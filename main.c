@@ -58,16 +58,25 @@ void		PSC2_Load (unsigned int dt0, unsigned int dt1);
 uint16_t	controlVF(uint16_t wTs);
 uint16_t	duty_cycle(uint16_t theta, uint16_t Vm) ;
 
+
+uint16_t freq_to_omega(uint16_t freq)
+{
+	return freq * 360 * K_scal / 1000; 
+}	
+
 void main(void)
 {		
 	init();
 	PSC_Init(0x00, MAX_PWM); 
 	uart_init(UART_BAUD_SELECT_DOUBLE_SPEED(UART_BAUDRATE, F_CPU));
 	
+	/* !!! */
+	Command = freq_to_omega(50);	// 50 Hz
+	
 	while(1)
 	{
 		/* Communicate with Big Brother :-) */
-		communication();
+		// communication();
 		
 		/* Sampling */
 		if (Flag_IT_timer0)
@@ -87,8 +96,8 @@ void main(void)
 				TCNT1      = 0;
 					
 				/* PID controller */
-				pid_output = update_pid(reference_val.omega - Omega_meas, Omega_meas);
-				Command    = ((int32_t)pid_output * 131) >> 10;
+				// pid_output = update_pid(reference_val.omega - Omega_meas, Omega_meas);
+				// Command    = ((int32_t)pid_output * 131) >> 10;
 					
 				/* Update immediate vals */
 				instant_val.time       = timer;
