@@ -64,10 +64,12 @@ void main(void)
 	PSC_Init(0x00, MAX_PWM); 
 	uart_init(UART_BAUD_SELECT_DOUBLE_SPEED(UART_BAUDRATE, F_CPU));
 	
+	Command = 64;
+	
 	while(1)
 	{
 		/* Communicate with Big Brother :-) */
-		communication();
+		// communication();
 		
 		/* Sampling */
 		if (Flag_IT_timer0)
@@ -87,8 +89,8 @@ void main(void)
 				TCNT1      = 0;
 					
 				/* PID controller */
-				pid_output = update_pid(reference_val.omega - Omega_meas, Omega_meas);
-				Command    = ((int32_t)pid_output * 131) >> 10;
+				// pid_output = update_pid(reference_val.omega - Omega_meas, Omega_meas);
+				// Command    = ((int32_t)pid_output * 131) >> 10;
 					
 				/* Update immediate vals */
 				instant_val.time       = timer;
