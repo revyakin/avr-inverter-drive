@@ -58,13 +58,20 @@ void		PSC2_Load (unsigned int dt0, unsigned int dt1);
 uint16_t	controlVF(uint16_t wTs);
 uint16_t	duty_cycle(uint16_t theta, uint16_t Vm) ;
 
+
+uint16_t freq_to_omega(uint16_t freq)
+{
+	return freq * 360 * K_scal / 1000; 
+}	
+
 void main(void)
 {		
 	init();
 	PSC_Init(0x00, MAX_PWM); 
 	uart_init(UART_BAUD_SELECT_DOUBLE_SPEED(UART_BAUDRATE, F_CPU));
 	
-	Command = 64;
+	/* !!! */
+	Command = freq_to_omega(50);	// 50 Hz
 	
 	while(1)
 	{
